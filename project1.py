@@ -7,6 +7,24 @@ input_file = "Input 1.txt"
 
 output_file = "Output " + input_file[6] + ".txt"
 
+#array that will hold diffrent state of transaction
+input_operation = []
+A = "active"
+B = "abort"
+C = "committed"
+E = "abort"
+
+#array that will hold transaction table items 
+transTableItem = []
+
+#array to hold lock item
+locTableItem = []
+
+#will hold write and read transaction
+RW_transaction = []
+W = "write"
+R = "Read"
+
 # Reading and parsing each line in file 
 try:
     with open(input_file, 'r') as input:
