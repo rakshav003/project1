@@ -2,7 +2,7 @@
 # Rakshav Patel – 10011941754
 
 # Get input file and store it in a variable
-input_file = "Input 1.txt"
+input_file = "Input 4.txt"
 # input_file = input("Enter input file name: ")
 
 output_file = "Output " + input_file[6] + ".txt"
@@ -24,6 +24,21 @@ locTableItem = []
 RW_transaction = []
 W = "write"
 R = "Read"
+
+# lock class this will hold diffrent elements of the lock tabel
+class lock_table():
+    def __init__(self, lock_sate, lock_item, t_id):
+        self.lock_state = lock_sate # if its active or locked
+        self.lock_item = lock_item  # if the item is already locked
+        self.RW_transaction = []    # this is read or write transaction
+        self.lockHoldBy = []        # holding lock for read or write
+        self.lockHoldBy.append(t_id)
+    def ChangeLock_State(self, lock_state):
+        self.lock_state = lock_state
+    def lockHoldBy(self, t_id):
+        self.lockHoldBy.append(t_id)
+    def waiting_transaction(self, t_id):
+        self.RW_transaction.append(t_id) # waitinmg for items to be unlocked
 
 # Reading and parsing each line in file 
 try:
