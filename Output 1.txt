@@ -1,0 +1,14 @@
+b1; T1 begins. TS=1. Id=1. state=active.
+r1(Y); T1 reads item Y
+w1(Y); T1 writes item Y
+r1(Z); T1 reads item Z
+b2; T2 begins. TS=2. Id=2. state=active.
+r2(Y); T2 reads item Y
+b3; T3 begins. TS=3. Id=3. state=active.
+r3(Z); T3 reads item Z
+w1(Z); T1 writes item Z
+e1; T1 is committed
+w3(Z); T3 writes item Z
+e3; T3 is committed
+Final state:
+T1: committed. T2: active. T3: committed. 
